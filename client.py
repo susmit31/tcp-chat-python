@@ -2,7 +2,8 @@ import socket
 import threading
 
 PORT = 12345
-IP = '127.0.0.1'
+LOCALIP = '127.0.0.1'
+IP = '192.168.0.5'
 
 nick = input('Enter your display name: ')
 
