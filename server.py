@@ -4,10 +4,12 @@ import threading
 PORT = 12345
 LOCALIP = '127.0.0.1'
 IP = '192.168.0.5'
+
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind((LOCALIP,PORT))
+server.bind(('',PORT))
 server.listen()
 print('Listening...')
+
 clients = []
 nicknames = []
 
@@ -35,8 +37,8 @@ def receiveSignal():
         client.send("nick".encode('utf-8'))
         nick = client.recv(1024).decode('utf-8')
         print(f'Connected with {str(address)}')
-        broadcast(f'\n{nick} joined the chat.\n>> '.encode('utf-8'))
-        client.send('\nSuccessfully connected with the server\n>> '.encode('utf-8'))
+        broadcast(f'\n{nick} joined the chat.'.encode('utf-8'))
+        client.send('\nSuccessfully connected with the server.'.encode('utf-8'))
         nicknames.append(nick)
         clients.append(client)
         thread = threading.Thread(target=getMsgs, args=(client,))

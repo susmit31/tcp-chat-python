@@ -31,14 +31,14 @@ def awaitMsg():
             msg = input('')
             if msg=='q':
                 break
-            client.send(f'\n{nick}: {msg}\n>> '.encode('utf-8'))
+            client.send(f'\n{nick}: {msg}'.encode('utf-8'))
         except:
             print('Error.')
             client.close()
             break
 
-rcv_thread = threading.Thread(target=receive)
 msg_thread = threading.Thread(target=awaitMsg)
+rcv_thread = threading.Thread(target=receive)
 
-rcv_thread.start()
 msg_thread.start()
+rcv_thread.start()
