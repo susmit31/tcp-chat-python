@@ -3,7 +3,7 @@ import threading
 
 PORT = 12345
 LOCALIP = '127.0.0.1'
-IP = '103.134.255.108'
+IP = '192.168.0.5'
 
 nick = input('Enter your display name: ')
 
